@@ -40,8 +40,8 @@ Vector performs VRL-based normalization and filtering before forwarding events t
 The most valuable lessons came from the problems that don't usually appear in tutorials:
 
 * Silent `rsyslog` failures with no diagnostic output
-* Vector VRL syntax constraints that weren't clearly documented
-* Suricata resetting its syslog destination after pfSense updates
+* Vector VRL syntax constraints that werenot clearly documented
+* Suricata resetting its syslog destination 
 * Traefik's Docker provider silently dropping routes after restarts
 
 These issues required troubleshooting the actual system rather than following a predefined tutorial.
