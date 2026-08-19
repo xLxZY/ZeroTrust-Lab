@@ -1,41 +1,71 @@
-# Zero Trust Architecture inspired lab- distributed across 2 physical machines, 8 VMs, and 4 segmented VLANs.
+# Zero Trust Architecture Inspired Lab
 
-The Access Control Model
+A hands-on **Zero Trust Architecture (ZTA)** lab distributed across **2 physical machines, 8 virtual machines, and 4 segmented VLANs**.
 
-Three independent enforcement layers -  a request must pass all three before access is granted:
+## Architecture Overview
 
-→ Cloudflare Edge: identity allowlist + geographic restriction + device posture (WARP) + custom WAF blocking offensive tool User-Agents
-→ Traefik (PEP): forwardAuth middleware on every route - nothing gets proxied without an auth check
-→ Authelia: TOTP per session, default_policy: deny, 30-min inactivity timeout, 3-attempt  lockout
+The lab implements three independent enforcement layers. A request must successfully pass **all three** before access is granted:
 
-No single control is trusted in isolation; access requires independent validation across edge, proxy, and identity layers.
+* **Cloudflare Edge** - identity allowlist, geographic restrictions, WARP device posture, and a custom WAF rule blocking offensive-tool User-Agents.
+* **Traefik (PEP)** - `forwardAuth` middleware is enforced on every route; nothing is proxied without an authentication check.
+* **Authelia** - TOTP authentication per session, `default_policy: deny`, 30-minute inactivity timeout, and 3-attempt account lockout.
 
- Network Segmentation
+No single control is trusted in isolation. Access requires independent validation across the **edge, proxy, and identity layers**.
 
-4 trust zones enforced by pfSense with a default-deny policy:
-- VLAN 10 (MGMT) - Splunk SIEM, restricted
-- VLAN 20 (SERVICES) - ZTA proxy layer
-- VLAN 30 (USERS) - workstations and app servers
-- VLAN 40 (ISOLATED) - completely cut off from MGMT and SERVICES
+## Network Segmentation
 
-VLAN segmentation alone isn't Zero Trust. It's one layer of a multi-layer model.
+Four trust zones are enforced by **pfSense** using a default-deny policy:
 
-Validation included policy enforcement tests, segmented access verification, and unauthorized route blocking across all trust zones.
+| VLAN    | Trust Zone | Purpose                                        |
+| ------- | ---------- | ---------------------------------------------- |
+| VLAN 10 | MGMT       | Splunk SIEM and restricted management services |
+| VLAN 20 | SERVICES   | Zero Trust proxy layer                         |
+| VLAN 30 | USERS      | Workstations and application servers           |
+| VLAN 40 | ISOLATED   | Completely isolated from MGMT and SERVICES     |
 
- Telemetry Pipeline
+> **VLAN segmentation alone is not Zero Trust.** It is one layer within a broader multi-layer security model.
 
-Built a telemetry pipeline (rsyslog → Vector → Splunk) with VRL normalization and filtering, reducing log volume ~85% while preserving security-relevant events.
+Validation included policy-enforcement tests, segmented-access verification, and unauthorized-route blocking across the trust zones.
 
- Real Engineering, Real Problems
+## Telemetry Pipeline
 
-The challenges I hit were the most valuable part - silent rsyslog failures with no diagnostic output, Vector VRL syntax constraints that aren't in the docs, Suricata resetting its syslog destination after every pfSense update, Traefik's Docker provider silently dropping routes after restarts.
+The lab also includes a security telemetry pipeline:
 
-None of that shows up in tutorials. It shows up in production.
+**rsyslog → Vector → Splunk**
 
- The Takeaway
+Vector performs VRL-based normalization and filtering before forwarding events to Splunk. This reduced log volume by approximately **85%** while preserving security-relevant events.
 
-Zero Trust is not a product. No vendor delivers it. It's a design commitment across every layer simultaneously - edge, proxy, identity, network, and monitoring. Remove a layer and the attack surface expands immediately.
+## Real Engineering Problems
 
-Full write-up with architecture diagrams, pipeline design, NIST SP 800-207 mapping, and engineering notes:
+The most valuable lessons came from the problems that don't usually appear in tutorials:
 
+* Silent `rsyslog` failures with no diagnostic output
+* Vector VRL syntax constraints that weren't clearly documented
+* Suricata resetting its syslog destination after pfSense updates
+* Traefik's Docker provider silently dropping routes after restarts
+
+These issues required troubleshooting the actual system rather than following a predefined tutorial.
+
+## Key Takeaway
+
+**Zero Trust is not a product.**
+
+No single vendor delivers Zero Trust by itself. It is a design commitment that has to be applied across every layer:
+
+**Edge → Proxy → Identity → Network → Monitoring**
+
+Remove one layer, and the attack surface expands.
+
+## Documentation
+
+The full write-up includes:
+
+* Architecture diagrams
+* Telemetry pipeline design
+* NIST SP 800-207 mapping
+* Implementation details
+* Validation and testing
+* Troubleshooting notes and lessons learned
+
+**Full write-up:**
 https://kar1m.site/blog#zero-trust-lab-build
