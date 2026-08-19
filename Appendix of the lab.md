@@ -2,10 +2,10 @@
 # Everything in this 1 file instead of multiple files that will make you feel lost 
 # all secrets are random and UNUSED 
 **Author:** Karim (LxZy)
-**Domain:** kar1m.site
 
 
-D1 = Decvice1
+
+D1 = Decvice1 /
 D2 = Device 2 
 
 ---
