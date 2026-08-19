@@ -1,8 +1,8 @@
 # Zero Trust Lab  - Technical Appendix
-# Everything in this 1 file instead of multiple files that will make you feel lost 
-# all secrets are random and UNUSED  IDC about them 
+## Everything in this 1 file instead of multiple files that will make you feel lost 
+## all secrets are random and UNUSED  IDC about them 
 
-# Note if  it worked on mine it doesnt have to works on yours :)
+## Note if  it worked on mine it doesnt have to works on yours :)
 **Author:** Karim (LxZy)
 
 
