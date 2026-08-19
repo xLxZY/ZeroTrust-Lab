@@ -146,7 +146,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["vm_enrich"]
   endpoint   = "http://192.168.10.20:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "d2-vms"
   sourcetype = "syslog"
@@ -157,7 +157,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["pfsense_enrich"]
   endpoint   = "http://192.168.10.20:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "pfsense-d2"
   sourcetype = "pfsense_filterlog"
@@ -168,7 +168,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["suricata_parse"]
   endpoint   = "http://192.168.10.20:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "suricata-d2"
   sourcetype = "suricata"
@@ -303,7 +303,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["d1_local_enrich"]
   endpoint   = "http://127.0.0.1:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "splunk-vm"
   sourcetype = "journald"
@@ -581,14 +581,14 @@ server:
 log:
   level: info
 
-jwt_secret: b1cefc3bc59fb09f1516db6b2cfd5fdc703fd0ca512f9fcd765c386de5e43e7d
+jwt_secret: b1cefc3bc59fb09f1516db6b2cfd5fdc703fd0ca512f9fcd765c386dxxxxxxxx
 
 authentication_backend:
   file:
     path: /config/users_database.yml
 
 session:
-  secret: eb8dc16c30d721c54422c75e108c28ef18ca183f2229327d589fab0b667d3f95
+  secret: eb8dc16c30d721c54422c75e108c28ef18ca183f2229327d589fab0bxxxxxxxx
   inactivity: 30m
   expiration: 8h
   remember_me: false
@@ -599,7 +599,7 @@ session:
       default_redirection_url: https://splunk.kar1m.site
 
 storage:
-  encryption_key: 96ee3a2e2d3e6f49c6ccf6cb3c4d6048b25a6615c9ec55a7ffa3a0b864eca7bc
+  encryption_key: 96ee3a2e2d3e6f49c6ccf6cb3c4d6048b25a6615c9ec55a7ffa3a0b8xxxxxxxx
   local:
     path: /config/db.sqlite3
 
