@@ -1,6 +1,6 @@
 # Zero Trust Lab  - Technical Appendix
 # Everything in this 1 file instead of multiple files that will make you feel lost 
-# all secrets are random and UNUSED 
+# all secrets are random and UNUSED  iDC about them 
 **Author:** Karim (LxZy)
 
 
