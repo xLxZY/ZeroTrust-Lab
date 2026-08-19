@@ -1363,9 +1363,6 @@ alice@appserver-vm
       -> Splunk still sees the evasion attempt
       -> Kill chain Rule 8: stage 9_EVASION registered
 
-  - After 3+ stages: Kill chain correlation fires
-      -> verdict = HIGH CONFIDENCE COMPROMISE
-      -> appserver-vm classified as compromised host
 ```
 
 ---
