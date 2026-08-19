@@ -1,6 +1,6 @@
 # Zero Trust Lab  - Technical Appendix
 # Everything in this 1 file instead of multiple files that will make you feel lost 
-
+# all secrets are random and UNUSED 
 **Author:** Karim (LxZy)
 **Domain:** kar1m.site
 
@@ -312,7 +312,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["services_enrich"]
   endpoint   = "http://127.0.0.1:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "services-vm"
   sourcetype = "syslog"
@@ -323,7 +323,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["pfsense_d1_enrich"]
   endpoint   = "http://127.0.0.1:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "pfsense-d1"
   sourcetype = "pfsense_filterlog"
@@ -334,7 +334,7 @@ D2 = Device 2
   type       = "splunk_hec_logs"
   inputs     = ["suricata_d1_parse"]
   endpoint   = "http://127.0.0.1:8088"
-  token      = "f4b0c50d-d856-4f00-9fa2-51e8ace1a960"
+  token      = "f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960"
   index      = "main"
   source     = "suricata-d1"
   sourcetype = "suricata"
@@ -384,7 +384,7 @@ services:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_PASSWORD=Splunk@123
       - SPLUNK_LICENSE_URI=Free
-      - SPLUNK_HEC_TOKEN=f4b0c50d-d856-4f00-9fa2-51e8ace1a960
+      - SPLUNK_HEC_TOKEN=f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960
       - SPLUNK_ENABLE_LISTEN=9997
       - SPLUNK_HTTP_ENABLESSL=false
     ports:
@@ -1405,10 +1405,9 @@ alice@appserver-vm
 | DVWA web | admin | password | default - change after setup.php |
 | DVWA MariaDB | dvwa | p@ssw0rd | app database |
 | DVWA MariaDB root | root | dvwa | SQLi target |
-| Splunk HEC token | - | f4b0c50d-d856-4f00-9fa2-51e8ace1a960 | Vector authentication |
-| Cloudflare Tunnel UUID | - | fcf78abe-c216-4911-aa42-d39f1a105947 | homelab tunnel |
+| Splunk HEC token | - | f4b0c50d-xxxx-xxxx-xxxx-51e8ace1a960 | Vector authentication |
+| Cloudflare Tunnel UUID | - | fcf78abe-xxxx-xxxx-xxxx-xxxxxxxxxx | homelab tunnel |
 
 ---
 
-*Zero Trust Architecture Lab v3 - Karim Abdel-Nasser Rady - CIC DEPI Program*
 *Stack: Splunk 9.3.2 - Vector 0.55.0 - Traefik v2.11 - Authelia - pfSense 2.7 - Suricata - Cloudflare Zero Trust - Docker - Ubuntu 22.04/24.04 - Kali Linux 2024*
