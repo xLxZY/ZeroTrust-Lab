@@ -68,4 +68,4 @@ The full write-up includes:
 * Troubleshooting notes and lessons learned
 
 **Full write-up:**
-https://kar1m.site/blog#zero-trust-lab-build
+https://kar1m.site/projects/zero-trust-architecture-inspired-lab/
