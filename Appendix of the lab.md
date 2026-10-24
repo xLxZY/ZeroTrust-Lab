@@ -2,7 +2,7 @@
 ## Everything in this 1 file instead of multiple files that will make you feel lost 
 ## all secrets are random and UNUSED  IDC about them 
 
-## Note if  it worked on mine it doesnt have to works on yours :)
+## Note if  it worked on mine it doesn't have to works on yours :) , it was a Prototype and just for learning i may rebuild it in the future in a better way and with deeper knowledge
 **Author:** Karim (LxZy)
 
 
